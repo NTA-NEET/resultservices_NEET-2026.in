@@ -1,0 +1,247 @@
+<script type="text/javascript">
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+
+    function burstCache() {
+        if (!navigator.onLine) {
+            window.location = "../SessionExpire.htm";
+        }
+    }
+    history.go(1);
+</script>
+
+
+
+
+<link href="/AdmitCard/Content/cssjqryUi?v=Ovsm8N21j68ejgPJGWq23uFxGCdoodX9A4YkFDgQ3VE1" rel="stylesheet" />
+
+<script src="/AdmitCard/bundles/jquery?v=290TUbkKLQAPBL1vmjL_RvWc_xQPNQAxuU5l3G2qsbE1"></script>
+
+<script src="/AdmitCard/bundles/jqueryui?v=pzoHjCaGdBNW2DvOmigabkkdxQbCLFHm-JA2jJu3OR01"></script>
+
+<script src="/AdmitCard/bundles/jqueryval?v=x63JhYAtPoWfuvvzOG4ie0IbeC8KtI5Q_Ln6iJWChUE1"></script>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LogIn Advance Exam City</title>
+    <style>
+        .headingmain h1 {
+            font-size: 18px;
+            margin: 0px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .headingmain h4 {
+            font-size: 16px;
+            margin: 0px;
+            font-weight: 500;
+            padding: 3px 3px;
+            text-align: center;
+        }
+
+        .headingmain h5 {
+            font-size: 14px;
+            margin: 0px;
+            font-weight: 500;
+            padding: 3px 3px;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        function AdminLogin_ValidatorFun(salt) {
+            debugger;
+
+            if (document.getElementById('ApplicationNo').value != "") {
+                var a = new RegExp("^[a-zA-Z0-9\.]+$");
+                if (!a.test(document.getElementById('ApplicationNo').value)) {
+                    document.getElementById('ApplicationNo').value = "";
+                    document.getElementById('txtPassword').value = "";
+                    alert('Enter valid Application No. & Password !!');
+                    return false;
+                }
+            } else {
+                alert('Enter valid Application No.');
+                return false;
+            }
+            if (document.getElementById('txtPassword').value != "") {
+                document.getElementById('txtPassword').value = (SHA256(document.getElementById('txtPassword').value)).toUpperCase();
+                document.getElementById('txtPassword').value = (SHA256(document.getElementById('txtPassword').value + salt)).toUpperCase();
+                var len = document.getElementById('txtPassword').value.length;
+                if (len > 64 || len < 64) {
+                    alert('Operation can not be performed.Your browser is not supporting Password Encryption.');
+                    return (false);
+                }
+                return (true);
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        window.history.forward();
+
+        function noBack() {
+            window.history.forward();
+        }
+
+        function burstCache() {
+            if (!navigator.onLine) {
+                window.location = "../SessionExpire.htm";
+            }
+        }
+        history.go(1);
+    </script>
+    <script type="text/javascript">
+        function captcha() {
+            /*            debugger;*/
+            $.ajax({
+                url: "/AdmitCard/AuthForCityJEE26S2/ShowCaptchaImage/",
+                cache: false,
+                success: function(html) {
+                    var img = document.getElementById('capimage');
+                    img.src = "";
+                    img.src = "../AuthForCityJEE26S2/ShowCaptchaImage/";
+                },
+                failed: function(response) {
+                    alert('failed');
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <form action="/AdmitCard/AuthForCityJEE26S2/LogIn" method="post">
+        <link href="/AdmitCard/Theme/Blue/index-style.css" rel="stylesheet" />
+        <section style="border-bottom: 3px solid #dadada; padding: 20px 0px;margin-bottom:10px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+
+                        <img src="/AdmitCard/Images/mhrdnew.png" class="img-responsive" />
+                    </div>
+
+                    <div class="col-md-6 headingmain">
+
+                        <h4 class="text-center">
+                            <b>Joint Entrance Examination (Main) – 2026 Session 2</b>
+                        </h4>
+                        <h5 class="text-center">
+                            Advance Information for Allotment of Centre City to the Applicant
+                        </h5>
+                    </div>
+                    <div class="col-md-3 headingmain">
+                        <img src="/AdmitCard/Images/NTA.png" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background-color: #ffffff; padding: 35px;">
+            <div class="container">
+                <div class="login_box_only">
+                    <div class="login_box_top">
+                        <h3 class="login_candidate">
+                            Login
+                        </h3>
+                    </div>
+                    <div class="login_box_mid_only">
+                        <br />
+                        <table cellpadding="2" cellspacing="0" style="width: 100%;">
+                            <tr>
+                                <td align="right" width="45%">
+                                    <b>Application Number</b>
+                                </td>
+                                <td align="left" width="55%">
+                                    <input autocomplete="off" class="form-control text-box single-line" data-val="true" data-val-regex="*Only number digit allowed" data-val-regex-pattern="^([0-9]{12})$" data-val-required="*Required" id="ApplicationNo" maxlength="12" minlength="12" name="ApplicationNo"
+                                        style="width:280px;padding:6px 12px;height:34px;" type="text" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="ApplicationNo" data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right" width="45%">
+                                    <label class="control-label" for="Password">Enter Password:</label>
+                                </td>
+                                <td align="left" width="55%">
+                                    <input AutoCompleteType="Disabled" autocomplete="off" class="form-control text-box single-line" data-val="true" data-val-required="*Required" id="txtPassword" name="Password" onchange="AdminLogin_ValidatorFun(&#39;PQ63122917289085&#39;)" placeholder=""
+                                        style="width:280px;padding:6px 12px;height:34px;" type="password" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="45%">
+                                    <label class="control-label" for="Captcha1">Enter Security Pin </label>
+                                    <br /><span class="green_txt"> (case sensitive) </span> :
+                                </td>
+                                <td align="left" width="55%">
+                                    <input autocomplete="off" class="form-control text-box single-line" data-val="true" data-val-required="*Required" id="Captcha1" maxlength="6" minlength="6" name="Captcha1" style="width:280px;padding:6px 12px;height:34px;" type="text" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="Captcha1" data-valmsg-replace="true"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="45%">
+                                    <label class="control-label" for="Secpin">Security Pin :</label>
+
+                                </td>
+                                <td align="left" width="55%">
+                                    <p>
+                                        <img src="../AuthForCityJEE26S2/ShowCaptchaImage" id="capimage" />
+
+                                        <img src="/AdmitCard/Images/Refresh.jpg" onclick="javascript:captcha();" style="cursor: pointer;" uiactions="valuechange" />
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="45%"></td>
+                                <td align="left">
+                                    <input type="submit" ID="Submit" Text="" class="btn-sm btn-success" value="Submit" />
+
+
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td colspan="2" align="right">
+                                    <a href="https://examinationservices.nic.in/jeemainx2026/root/CandidateLogin.aspx?enc=Ei4cajBkK1gZSfgr53ImFVj34FesvYg1WX45sPjGXBqzPh05kY3XJcgr+08TPD5A" style="color:darkblue; font-weight:600;" target="_blank">Forgot Password ? </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left">
+                                    <span style="color:red;">
+                                           
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background-color: #ffffff; border-top: 3px solid #dadada;padding:10px;">
+            <div class="container">
+                <p class="text-center">
+                    This digital platform has been developed by NIC as per the requirements and rules of the concerned Public Examination Authorities (PEA). It works as per the requirements, rules and regulations of the concerned user PEA. The data and processes are owned
+                    and managed by the concerned PEA.
+                </p>
+            </div>
+        </section>
+    </form>
+    <script src="/AdmitCard/bundles/jquery?v=290TUbkKLQAPBL1vmjL_RvWc_xQPNQAxuU5l3G2qsbE1"></script>
+
+    <script src="/AdmitCard/bundles/jqueryui?v=pzoHjCaGdBNW2DvOmigabkkdxQbCLFHm-JA2jJu3OR01"></script>
+
+    <script src="/AdmitCard/bundles/bootstrap?v=xRXuFe4TenZNH1Pjn_fxrvUbH8w1Q-6oT8xwBv9s8co1"></script>
+
+    <link href="/AdmitCard/Content/cssjqryUiLogin?v=tx_w6X1qn-R2SxLrjQkaDLGbLwAXeGymmZJRNLUFC7Q1" rel="stylesheet" />
+
+    <script src="/AdmitCard/Scripts/jquery.validate.js"></script>
+    <script src="/AdmitCard/Scripts/md5.js"></script>
+    <script src="/AdmitCard/Scripts/sha256.js"></script>
+</body>
+
+</html>
